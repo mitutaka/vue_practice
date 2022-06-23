@@ -13,21 +13,43 @@
   <body>
 
     <div id="app">
+      <!-- 仮想DOM -->
       {{ message }}
+      <!-- <a href="{{ google }}">googleへのリンク</a> -->
+      <!-- <a v-bind:href="google">googleへのリンク</a> -->
+      <a :href="google">googleへのリンク</a>
+      <br>
+      オブジェクト.キー
+      <a :href="book.url">{{ book.title }}</a>
+      <br>
+      <input v-bind="{name:formInput.name, placeholder:formInput.placeholder}">
+      <br>
+      <input v-bind="formInput">
     </div>
 
     <script>
+      // Vueクラス->インスタンス化(実態) new
+      // let app = new Vue({
+
+      // });
       let app = new Vue({
-        el: '#app',
-        // data: {
-        //   message: 'Hello Vue!'
-        // },
-        data() {
+        el: '#app', // 仮想DOM
+        data() { // 初期設定
           return {
-            message: 'Hello Vue!'
+            message: 'Hello', // キー(key):値(value)
+            google: 'http://google.com',
+            book: {
+              title: '本のタイトル',
+              url: 'https://google.com'
+            },
+            formInput: {
+              name: 'your_name',
+              placeholder: 'お名前を入力してください'
+            }
           }
         }
       })
+
     </script>
   </body>
 
