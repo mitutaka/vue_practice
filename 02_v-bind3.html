@@ -7,12 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
     <title>Document</title>
+    <style>
+      .active {
+        border: 1px solid red;
+      }
 
+      .text-danger {
+        color: red;
+      }
+    </style>
   </head>
 
   <body>
 
-    <div id="app"><!-- 仮想DOM -->
+    <div id="app">
+      <!-- 仮想DOM -->
+      <!-- <div style="" class=""></div> -->
+      <div :style="{fontSize:fontSize}">Styleテスト</div>
+      <div :class="{active:isActive}">classテスト</div>
     </div>
 
     <script>
@@ -20,6 +32,10 @@
         el: '#app',
         data() {
           return {
+            // font-size: '20px' // ケバブケース
+            fontSize: '20px', // キャメルケース
+
+            isActive: true
           }
         }
       })
