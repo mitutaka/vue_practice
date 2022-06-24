@@ -12,7 +12,10 @@
 
   <body>
 
-    <div id="app"><!-- 仮想DOM -->
+    <div id="app">
+      <!-- 仮想DOM -->
+      <div v-text="test"></div>
+      <div v-html="test"></div>
     </div>
 
     <script>
@@ -20,6 +23,7 @@
         el: '#app',
         data() {
           return {
+            test: 'あああ <br> いいい'
           }
         }
       })
